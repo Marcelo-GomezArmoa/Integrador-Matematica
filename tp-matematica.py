@@ -57,6 +57,45 @@ def frecuencia_y_suma(dnis):
 # utiliza un diccionario por comprensión para contar la frecuencia de cada dígito en el DNI.
 # utiliza sum() para calcular la suma total de los dígitos en el DNI.
 
+def operaciones_anios_nacimiento(anios):
+    # Contar cuántos nacieron en años pares e impares
+    pares = 0
+    impares = 0
+    for anio in anios:
+        if anio % 2 == 0:
+            pares += 1
+        else:
+            impares += 1
+    print(f"\nNacidos en años pares: {pares}")
+    print(f"Nacidos en años impares: {impares}")
+
+    # Si todos nacieron después del 2000, mostrar "Grupo Z"
+    if all(anio > 2000 for anio in anios):
+        print("Grupo Z")
+    else:
+        print("No todos nacieron después del 2000.")
+
+    # Si alguno nació en año bisiesto, mostrar "Tenemos un año especial"
+    def es_bisiesto(anio):
+        return (anio % 4 == 0 and anio % 100 != 0) or (anio % 400 == 0)
+
+    if any(es_bisiesto(anio) for anio in anios):
+        print("Tenemos un año especial")
+    else:
+        print("Nadie nació en un año bisiesto.")
+
+    # Calcular el producto cartesiano entre años y edades actuales
+    anio_actual = 2025
+    edades = [anio_actual - anio for anio in anios]
+    producto_cartesiano = [(a, e) for a in anios for e in edades]
+    print("Producto cartesiano (Año, Edad):")
+    for par in producto_cartesiano:
+        print(par)
+# realiza operaciones con años de nacimiento: cuenta pares e impares, verifica si todos son mayores a 2000,
+#  si hay años bisiestos y calcula el producto cartesiano entre años y edades actuales.
+# recibe una lista de años de nacimiento y realiza varias operaciones con ellos.
+# cuenta cuántos años son pares e impares.
+# verifica si todos los años son mayores a 2000 y muestra "Grupo Z" si es así.
 
 
 def main():
@@ -69,6 +108,10 @@ def main():
 # define los dnis, genera los conjuntos, ,uestra los resultados de las operaciones y evalua las expresiones lógicas.
 # llama a la función main() para ejecutar el programa.
 # y es el punto de entrada del programa.
+# Parte de años de nacimiento
+    anios = [1987, 1999, 1962]
+    operaciones_anios_nacimiento(anios)
+
 
 
 if __name__ == "__main__":
