@@ -11,6 +11,12 @@
 ## 📄 Descripción del Proyecto
 Este trabajo práctico integrador consiste en un programa desarrollado en Python que permite trabajar con conjuntos de dígitos únicos extraídos de los DNIs de los integrantes del grupo. El programa realiza operaciones de conjuntos (unión, intersección, diferencia y diferencia simétrica), evalúa expresiones lógicas sobre los conjuntos y calcula estadísticas como la frecuencia y suma de los dígitos de cada DNI.
 
+
+## 📄 Documentación
+
+👉 [Documentación completa](https://docs.google.com/document/d/1XxYoeq2hdCyZxD7X8wuvBQHwNflLf5y6KM1Ld78OuiI/edit?tab=t.0)
+
+
 ### Conceptos Aplicados
 
 #### 🎇 Programación:

@@ -7,6 +7,7 @@ def obtener_conjuntos(dnis):
 # utiliza set para eliminar duplicados.
 
 def mostrar_conjuntos(conjuntos):
+    print("\n") # Un espacio simple
     print("Conjuntos de dígitos únicos:")
     for i, c in enumerate(conjuntos, 1):
         print(f"Conjunto {chr(64+i)}: {sorted(c)}")
@@ -14,16 +15,21 @@ def mostrar_conjuntos(conjuntos):
 # bucle for con enumerate para recorrer y enumerar los conjuntos.
 # Utiliza chr(64+i) para obtener letras A, B, C, etc.
 # Utiliza sorted para mostrar los dígitos en orden ascendente.
-#
 
 
 def operaciones_conjuntos(conjuntos):
+    # Asegurarse de que haya al menos 3 conjuntos para descomponer A, B, C
+    if len(conjuntos) < 3:
+        print("\nSe necesitan al menos 3 conjuntos para realizar todas las operaciones (A, B, C).")
+        return set() # Devolver un conjunto vacío o manejar el error según se prefiera
+
     A, B, C = conjuntos
     union = A | B | C
     interseccion = A & B & C
     diferencia_A_B = A - B
     diferencia_sim_B_C = B ^ C
-    print("\nOperaciones entre conjuntos:")
+    print("\n") # Un espacio simple
+    print("Operaciones entre conjuntos:")
     print(f"Unión (A ∪ B ∪ C): {sorted(union)}")
     print(f"Intersección (A ∩ B ∩ C): {sorted(interseccion)}")
     print(f"Diferencia (A - B): {sorted(diferencia_A_B)}")
@@ -33,6 +39,8 @@ def operaciones_conjuntos(conjuntos):
 # operadores de conjuntos: | (unión), & (intersección), - (diferencia), ^ (diferencia simétrica).
 
 def evaluar_expresiones_logicas(conjuntos, interseccion):
+    print("\n") # Un espacio simple
+    print("Evaluación de Expresiones Lógicas (A. Operaciones con DNIs):")
     if interseccion:
         print(f"\nDígitos compartidos: {sorted(interseccion)}")
     else:
@@ -47,7 +55,8 @@ def evaluar_expresiones_logicas(conjuntos, interseccion):
 # utiliza if para evaluar si hay dígitos comunes en todos los conjuntos
 
 def frecuencia_y_suma(dnis):
-    print("\nFrecuencia de dígitos y suma total por DNI:")
+    print("\n") # Un espacio simple
+    print("Frecuencia de dígitos y suma total por DNI:")
     for i, dni in enumerate(dnis, 1):
         frecuencia = {str(d): dni.count(str(d)) for d in range(10)}
         suma = sum(int(d) for d in dni)
@@ -66,7 +75,9 @@ def operaciones_anios_nacimiento(anios):
             pares += 1
         else:
             impares += 1
-    print(f"\nNacidos en años pares: {pares}")
+    print("\n") # Un espacio simple
+    print("Operaciones con años de nacimiento:")
+    print(f"Nacidos en años pares: {pares}")
     print(f"Nacidos en años impares: {impares}")
 
     # Si todos nacieron después del 2000, mostrar "Grupo Z"
@@ -87,7 +98,12 @@ def operaciones_anios_nacimiento(anios):
     # Calcular el producto cartesiano entre años y edades actuales
     anio_actual = 2025
     edades = [anio_actual - anio for anio in anios]
-    producto_cartesiano = [(a, e) for a in anios for e in edades]
+    
+    conjunto_anios = set(anios)
+    conjunto_edades = set(edades)
+
+    producto_cartesiano = [(a, e) for a in sorted(list(conjunto_anios)) for e in sorted(list(conjunto_edades))]
+    print("\n") # Un espacio simple
     print("Producto cartesiano (Año, Edad):")
     for par in producto_cartesiano:
         print(par)
@@ -99,21 +115,79 @@ def operaciones_anios_nacimiento(anios):
 
 
 def main():
-    dnis = ["33418246", "41885186", "41698321"]
-    conjuntos = obtener_conjuntos(dnis)
-    mostrar_conjuntos(conjuntos)
-    interseccion = operaciones_conjuntos(conjuntos)
-    evaluar_expresiones_logicas(conjuntos, interseccion)
-    frecuencia_y_suma(dnis)
-# define los dnis, genera los conjuntos, ,uestra los resultados de las operaciones y evalua las expresiones lógicas.
-# llama a la función main() para ejecutar el programa.
-# y es el punto de entrada del programa.
-# Parte de años de nacimiento
-    anios = [1987, 1999, 1998]
-    operaciones_anios_nacimiento(anios)
+    """
+    Punto de entrada del programa.
+    Solicita DNI y años de nacimiento al usuario, luego ejecuta las operaciones.
+    """
+    print("\n" * 2) # Más espacio al inicio
+    print("Inicio del Programa Integrador de Matemática y Programación")
+    print("\n" * 2)
 
+    # --- INGRESO DE DATOS ---
+    num_integrantes = 0
+    while True:
+        try:
+            num_integrantes = int(input("Ingrese el número de integrantes del grupo (ej: 3): "))
+            if num_integrantes > 0:
+                break
+            else:
+                print("El número de integrantes debe ser al menos 1.")
+        except ValueError:
+            print("Entrada inválida. Por favor, ingrese un número entero.")
+
+    dnis_input = []
+    print("\n") # Espacio simple
+    print("INGRESO DE DNIS:")
+    print(" ") # Línea en blanco
+    for i in range(num_integrantes):
+        while True:
+            dni_valido = input(f"Ingrese el DNI del integrante {i+1} (solo números, 7 u 8 dígitos): ")
+            if dni_valido.isdigit() and 7 <= len(dni_valido) <= 8:
+                dnis_input.append(dni_valido)
+                break
+            else:
+                print("DNI inválido. Por favor, ingrese solo dígitos (7 u 8 caracteres).")
+
+    anios_input = []
+    print("\n") # Espacio simple
+    print("INGRESO DE AÑOS DE NACIMIENTO:")
+    print(" ") # Línea en blanco
+    print("Si dos o más integrantes tienen el mismo año, ingrese un dato ficticio para uno de ellos (por ejemplo, +1 o -1).")
+    for i in range(num_integrantes):
+        while True:
+            try:
+                anio_valido = int(input(f"Ingrese el año de nacimiento del integrante {i+1} (ej: 1990): "))
+                if 1900 <= anio_valido <= 2025:
+                    anios_input.append(anio_valido)
+                    break
+                else:
+                    print("Año inválido. Ingrese un año razonable (ej: entre 1900 y 2025).")
+            except ValueError:
+                print("Entrada inválida. Por favor, ingrese un número entero para el año.")
+    # --- FIN DE INGRESO DE DATOS ---
+
+
+    # --- Ejecución de las operaciones ---
+    if num_integrantes >= 3:
+        conjuntos = obtener_conjuntos(dnis_input)
+        mostrar_conjuntos(conjuntos)
+        interseccion = operaciones_conjuntos(conjuntos)
+        evaluar_expresiones_logicas(conjuntos, interseccion)
+        frecuencia_y_suma(dnis_input)
+    else:
+        print("\n" * 2) # Más espacio para el aviso
+        print("AVISO: No se pueden realizar todas las operaciones de conjuntos (Unión, Intersección, Diferencias)")
+        print("ya que se necesitan al menos 3 integrantes. Se omitirán esas secciones.")
+        print("\n" * 2)
+        frecuencia_y_suma(dnis_input) # Aún podemos calcular frecuencia y suma si lo deseas.
+
+
+    operaciones_anios_nacimiento(anios_input) # Esta función siempre se ejecuta con los años ingresados
+
+    print("\n" * 2) # Más espacio al final
+    print("Fin del Programa")
+    print("\n" * 2)
 
 
 if __name__ == "__main__":
     main()
-
