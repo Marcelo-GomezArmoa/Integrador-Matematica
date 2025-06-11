@@ -3,8 +3,10 @@
 # Trabajo Práctico Integrador 2: Matemática y Programación
 
 ## 👥 Integrantes del equipo
--Marcelo, Gomez Armoa
--Sebastian, Gosso
+
+- **Marcelo Gomez Armoa**  
+- **Sebastián Gosso**  
+- **Luciano Emerí**
 
 ## 📄 Descripción del Proyecto
 Este trabajo práctico integrador consiste en un programa desarrollado en Python que permite trabajar con conjuntos de dígitos únicos extraídos de los DNIs de los integrantes del grupo. El programa realiza operaciones de conjuntos (unión, intersección, diferencia y diferencia simétrica), evalúa expresiones lógicas sobre los conjuntos y calcula estadísticas como la frecuencia y suma de los dígitos de cada DNI.
