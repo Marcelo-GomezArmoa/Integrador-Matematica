@@ -99,7 +99,7 @@ def operaciones_anios_nacimiento(anios):
 
 
 def main():
-    dnis = ["33418246", "41885186", "16576288"]
+    dnis = ["33418246", "41885186", "41698321"]
     conjuntos = obtener_conjuntos(dnis)
     mostrar_conjuntos(conjuntos)
     interseccion = operaciones_conjuntos(conjuntos)
@@ -109,7 +109,7 @@ def main():
 # llama a la función main() para ejecutar el programa.
 # y es el punto de entrada del programa.
 # Parte de años de nacimiento
-    anios = [1987, 1999, 1962]
+    anios = [1987, 1999, 1999]
     operaciones_anios_nacimiento(anios)
 
 
