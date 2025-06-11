@@ -34,7 +34,7 @@ def operaciones_conjuntos(conjuntos):
 
 def evaluar_expresiones_logicas(conjuntos, interseccion):
     if interseccion:
-        print(f"\nDígitos comunes en todos los conjuntos: {sorted(interseccion)}")
+        print(f"\nDígitos compartidos: {sorted(interseccion)}")
     else:
         print("\nNo hay dígitos comunes en todos los conjuntos.")
 
@@ -109,7 +109,7 @@ def main():
 # llama a la función main() para ejecutar el programa.
 # y es el punto de entrada del programa.
 # Parte de años de nacimiento
-    anios = [1987, 1999, 1999]
+    anios = [1987, 1999, 1998]
     operaciones_anios_nacimiento(anios)
 
 
