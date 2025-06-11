@@ -12,7 +12,7 @@ Este trabajo práctico integrador consiste en un programa desarrollado en Python
 ### Conceptos Aplicados
 
 #### 🎇 Programación:
-- Uso de estructuras de control (`if`, `for`).
+- Uso de estructuras de control (`if`, `for`)
 - Funciones definidas por el usuario para modularizar el código.
 - Procesamiento y validación de datos de entrada.
 
