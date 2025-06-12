@@ -133,7 +133,7 @@ def main():
                 break
             else:
                 print("El número de integrantes debe ser al menos 1.")
-        except ValueError2:
+        except ValueError:
             print("Entrada inválida. Por favor, ingrese un número entero.")
 
     dnis_input = []
