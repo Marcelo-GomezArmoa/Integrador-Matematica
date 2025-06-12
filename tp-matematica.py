@@ -50,6 +50,7 @@ def evaluar_expresiones_logicas(conjuntos, interseccion):
         print("Es un grupo sin ceros.")
     else:
         print("Algún conjunto tiene el número 0.")
+        
 # evalua expresiones lógicas sobre los conjuntos 1- si hay dígitos comunes, 2- si todos los conjuntos tienen ceros o no.
 # utiliza all() para verificar si todos los conjuntos no contienen el 0.
 # utiliza if para evaluar si hay dígitos comunes en todos los conjuntos
@@ -127,12 +128,12 @@ def main():
     num_integrantes = 0
     while True:
         try:
-            num_integrantes = int(input("Ingrese el número de integrantes del grupo (ej: 3): "))
+            num_integrantes = int(input("Ingrese el número de integrantes del grupo (ej: 3). Si ingresa menos de 3 se omitiran las operaciones de Unión, Intersección y Diferencias: "))
             if num_integrantes > 0:
                 break
             else:
                 print("El número de integrantes debe ser al menos 1.")
-        except ValueError:
+        except ValueError2:
             print("Entrada inválida. Por favor, ingrese un número entero.")
 
     dnis_input = []
