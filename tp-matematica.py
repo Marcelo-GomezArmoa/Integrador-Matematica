@@ -18,13 +18,13 @@ def mostrar_conjuntos(conjuntos):
 
 
 def operaciones_conjuntos(conjuntos):
-    # Asegurarse de que haya al menos 3 conjuntos para descomponer A, B, C
-    if len(conjuntos) < 3:
+    # Asegurarse de que hayan 3 conjuntos para descomponer A, B, C
+    if len(conjuntos) != 3 :
         print("\nSe necesitan al menos 3 conjuntos para realizar todas las operaciones (A, B, C).")
         return set() # Devolver un conjunto vacío o manejar el error según se prefiera
 
     A, B, C = conjuntos
-    union = A | B | C
+    union = A | B | C 
     interseccion = A & B & C
     diferencia_A_B = A - B
     diferencia_sim_B_C = B ^ C
@@ -125,24 +125,14 @@ def main():
     print("\n" * 2)
 
     # --- INGRESO DE DATOS ---
-    num_integrantes = 0
-    while True:
-        try:
-            num_integrantes = int(input("Ingrese el número de integrantes del grupo (ej: 3). Si ingresa menos de 3 se omitiran las operaciones de Unión, Intersección y Diferencias: "))
-            if num_integrantes > 0:
-                break
-            else:
-                print("El número de integrantes debe ser al menos 1.")
-        except ValueError:
-            print("Entrada inválida. Por favor, ingrese un número entero.")
+    num_integrantes = 3
 
     dnis_input = []
-    print("\n") # Espacio simple
     print("INGRESO DE DNIS:")
     print(" ") # Línea en blanco
     for i in range(num_integrantes):
         while True:
-            dni_valido = input(f"Ingrese el DNI del integrante {i+1} (solo números, 7 u 8 dígitos): ")
+            dni_valido = input(f"Ingrese el DNI del integrante {i+1} de 3 (solo números, 7 u 8 dígitos): ")
             if dni_valido.isdigit() and 7 <= len(dni_valido) <= 8:
                 dnis_input.append(dni_valido)
                 break
