@@ -19,7 +19,7 @@ Este trabajo práctico integrador consiste en un programa desarrollado en Python
 ## 🎥 Video Demostrativo del Proyecto
 
 Podés ver el video explicativo del proyecto en el siguiente enlace:  
-👉 [Ver video en Google Drive](https://docs.google.com/document/d/1XxYoeq2hdCyZxD7X8wuvBQHwNflLf5y6KM1Ld78OuiI)
+👉 [Ver video en Youtube](https://youtu.be/USZwE258uc8)
 
 ### Conceptos Aplicados
 
