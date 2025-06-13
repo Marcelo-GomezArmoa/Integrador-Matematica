@@ -11,10 +11,6 @@ def mostrar_conjuntos(conjuntos):
 # imprime cada conjunto de digito unicos, identificandolos con letras A, B, C.
 
 def operaciones_conjuntos(conjuntos):
-    # Asegurarse de que hayan 3 conjuntos para descomponer A, B, C
-    if len(conjuntos) != 3 :
-        print("\nSe necesitan al menos 3 conjuntos para realizar todas las operaciones (A, B, C).")
-        return set()
 
     A, B, C = conjuntos
     union = A | B | C 
